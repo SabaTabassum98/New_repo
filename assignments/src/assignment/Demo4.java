@@ -21,6 +21,7 @@ class Demo4 {
 	}
 }
 /*
+this program will not work as catch block ArithmeticException should be before Exception or else it will throw unreachable compile time error
 class Main {
 	public static void main (String[] args) {
         try{
