@@ -5,10 +5,11 @@ import java.util.Scanner;
 class Demo4 {
 	public static void main (String[] args) {
         try{
-        	Scanner scan = new Scanner(System.in);
-        	int a = 1;
-        	int b = Integer.parseInt(scan.next());
-            System.out.println(a/b);
+        	try (Scanner scan = new Scanner(System.in)) {
+				int a = 1;
+				int b = Integer.parseInt(scan.next());
+				System.out.println(a/b);
+			}
         }catch(ArithmeticException e)
         {
         	System.out.println("ArithmeticException :divide by 0");

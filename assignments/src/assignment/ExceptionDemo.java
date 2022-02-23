@@ -14,29 +14,30 @@ public class ExceptionDemo {
 	public static void main (String[] args){
 		int voter1 =0;
 		int voter2 = 0;
-		Scanner scan = new Scanner(System.in);
-		try {
-		System.out.println("Please Enter the Age of First Voter");
-		voter1 = Integer.parseInt(scan.next());
-		System.out.println("Please Enter the Age of Second Voter");
-		voter2 = Integer.parseInt(scan.next());
-		
-	/*	if(voter1<0) {
-			throw new InvalidAgeException(voter1);
-		}else if(voter2<0) {
-			throw new InvalidAgeException(voter2);
-		}else {*/
-		System.out.print("Voter 1 : ");
-		canVote(voter1);
-		System.out.print("Voter 2 : ");
-		canVote(voter2);
+		try (Scanner scan = new Scanner(System.in)) {
+			try {
+			System.out.println("Please Enter the Age of First Voter");
+			voter1 = Integer.parseInt(scan.next());
+			System.out.println("Please Enter the Age of Second Voter");
+			voter2 = Integer.parseInt(scan.next());
+			
+/*	if(voter1<0) {
+				throw new InvalidAgeException(voter1);
+			}else if(voter2<0) {
+				throw new InvalidAgeException(voter2);
+			}else {*/
+			System.out.print("Voter 1 : ");
+			canVote(voter1);
+			System.out.print("Voter 2 : ");
+			canVote(voter2);
 //		}
-		}
-		catch(NumberFormatException e) {
-		System.out.println("Please Enter a valid input from 0-150");
-		}
-		catch(InvalidAgeException e) {
-			System.out.println(e);
+			}
+			catch(NumberFormatException e) {
+			System.out.println("Please Enter a valid input from 0-150");
+			}
+			catch(InvalidAgeException e) {
+				System.out.println(e);
+			}
 		}
 		}
 
@@ -44,6 +45,11 @@ public class ExceptionDemo {
 
 class InvalidAgeException extends Exception{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public InvalidAgeException(int age) {
 		System.out.println("Please Enter a valid input from 0-150");
 	}
