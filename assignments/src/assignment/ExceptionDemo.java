@@ -48,7 +48,7 @@ class InvalidAgeException extends Exception{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 7750200618427426391L;
 
 	public InvalidAgeException(int age) {
 		System.out.println("Please Enter a valid input from 0-150");
